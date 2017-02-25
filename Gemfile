@@ -12,8 +12,12 @@ gem 'rails', '~> 5.0.1'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+# bootstrap-sass is a Sass-powered version of Bootstrap 3
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Forms made easy!
+gem 'simple_form', '~> 3.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
