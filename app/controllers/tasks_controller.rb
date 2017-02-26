@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 	before_action :find_task, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@task = Task.all("created_at DESC")
+		@tasks = Task.all.order("created_at DESC")
 	end
 
 	def show
@@ -18,7 +18,7 @@ class TasksController < ApplicationController
 	def create
 		@task = Task.new(task_params)
 		if @task.save
-			redirect_to_ root_path
+			redirect_to root_path
 		else
 			render 'new'
 		end
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
 
 	private
 		def task_params
-			params.require(:task).permit(:title, :text)
+			params.require(:task).permit(:title, :description)
 		end
 
 		def find_task
