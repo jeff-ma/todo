@@ -29,13 +29,24 @@
 						<div class="col-sm-8">
 							<div class="task-body">
 								<h2 class="task-title"><%= task.title %></h2>
+<% if task.latitude? %>
+<div id="<%= 'google-map' + i.to_s %>" style="width:100%;height:500px"></div>
+
+<script>
+function myMap() {
+  var myCenter = new google.maps.LatLng(<%= task.latitude %>, <%= task.longitude %>);
+  var mapCanvas = document.getElementById("<%= 'google-map' + i.to_s %>");
+  var mapOptions = {center: myCenter, zoom: 15, mapTypeId:google.maps.MapTypeId.ROADMAP};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYxOP1Eb_CAGqLl2XrZBpADTaeV40MuBA&callback=myMap"></script>
+<% end %>
 								<div class="description">
 									<p class="task-sub-title task-desc"><%= task.description %></p>
-									<% if task.latitude? %>
-									<div id="<%= 'google-map' + i.to_s %>"></div>
-										<p><%= task.latitude %></p>
-										<p><%= task.longitude %></p>
-									<% end %>
 								</div>
 								<button class="task-toggle">Show details</button>
 								<%= link_to edit_task_path(task), method: :get do %><button class="task-edit">Edit details</button><% end %>
