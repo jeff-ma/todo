@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226055614) do
+ActiveRecord::Schema.define(version: 20170228012208) do
 
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20170226055614) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "user_id"
+    t.string   "address"
+    t.float    "latitude",    limit: 24
+    t.float    "longitude",   limit: 24
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
