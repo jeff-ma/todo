@@ -17,9 +17,9 @@
 //= require_tree .
 
 $(document).ready(function(){
-    $(".task-body").click(function(){
+    $(".task-toggle").click(function(){
     	var SH = this.SH^=1; // "Simple toggler"
-        $(this).children(".description").slideToggle();
-        $(this).children(".task-toggle").html(SH?"Hide details":"Show details");
+        $(this).siblings(".description").slideToggle();
+        $(this).html(SH?"Hide details":"Show details");
     });
 });

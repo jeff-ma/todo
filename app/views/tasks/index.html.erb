@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-sm-8 col-sm-offset-2">
 		<% @tasks.each do |task| %>
 			<div class="index-wrapper">
 				<% if task.completed? %>
 					<div class="row task">
-						<div class="col-md-2">
+						<div class="col-sm-2">
 							<p><%= link_to complete_task_path(task), method: :patch do %><i class="fa fa-check-square-o fa-3x"></i><% end %></p>
 						</div>
-						<div class="col-md-8">
+						<div class="col-sm-8">
 							<div class="task-body">
 								<h2 style="opacity: 0.5;" class="task-title"><strike><%= task.title%></strike></h2>
 								<div class="description">
@@ -17,16 +17,16 @@
 							</div>
 							<p style="opacity: 0.5;" class="time-created-at task-sub-title">Completed <%= time_ago_in_words(task.completed) %> ago</p>
 						</div>
-						<div class="col-md-2">
+						<div class="col-sm-2">
 							<p><%= link_to task, method: :delete, data: { confirm: "Are you sure?" } do %><i class="fa fa-trash-o fa-3x"></i><% end %></p>
 						</div>	
 					</div>
 				<% else %>	
 					<div class="row task">
-						<div class="col-md-2">
+						<div class="col-sm-2">
 							<p><%= link_to complete_task_path(task), method: :patch do %><i class="fa fa-square-o fa-3x"></i><% end %></p>
                 		</div>
-						<div class="col-md-8">
+						<div class="col-sm-8">
 							<div class="task-body">
 								<h2 class="task-title"><%= task.title %></h2>
 								<div class="description">
@@ -37,12 +37,12 @@
 										<p><%= task.longitude %></p>
 									<% end %>
 								</div>
-								<button class="toggle-show">Show details</button>
-								<%= link_to edit_task_path(task), method: :get do %><button class="task-edit-button">Edit details</button><% end %>
+								<button class="task-toggle">Show details</button>
+								<%= link_to edit_task_path(task), method: :get do %><button class="task-edit">Edit details</button><% end %>
 							</div>
 							<p style="opacity: 0.5;" class="time-created-at task-sub-title">Created <%= time_ago_in_words(task.created_at) %> ago</p>
 						</div>
-						<div class="col-md-2">
+						<div class="col-sm-2">
 							<p><%= link_to task, method: :delete, data: { confirm: "Are you sure?" } do %><i class="fa fa-trash-o fa-3x"></i><% end %></p>
 						</div>
 					</div>
