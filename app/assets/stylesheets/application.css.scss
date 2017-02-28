@@ -15,3 +15,36 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* Task */
+
+.task {
+	border-bottom: 1px solid #CCCCCC;
+	padding-bottom: 0.5em;
+}
+.task-title {
+	margin-top: 0;
+}
+.task-desc {
+	font-size: 1em;
+}
+.task-time-ago {
+	color: darken(#e7e7e7, 50%);
+	font-size: 0.85em;
+	letter-spacing: 1.25;
+}
+.task-sub-title {
+	margin-bottom: 0;
+}
+.task:nth-child(n+1) {
+	padding-top: 1.5em;
+}
+.description {
+	display: none;
+}
+.task-body button {
+	background-color: #98C60C; /* Green */
+	border: none;
+	border-radius: 2px;
+	color: #FFFFFF;
+}

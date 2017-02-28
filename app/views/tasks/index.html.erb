@@ -5,36 +5,42 @@
 				<% if task.completed? %>
 					<div class="row task">
 						<div class="col-md-2">
-                                                        <p><%= link_to complete_task_path(task), method: :patch do %></p>
-                                                                Mark complete
-                                                        <% end %>
+                                                        <p><%= link_to complete_task_path(task), method: :patch do %><i class="fa fa-check-square-o fa-3x"></i></p>
                                                 </div>
+						<% end %>
 						<div class="col-md-8">
-							<h2 style="opacity: 0.5;" class="task-title"><strike><%= link_to task.title, task %></strike></h2>
-							<p style="opacity: 0.5;" class="task-sub-title task-desc"><%= task.description %></p>
+							<div class="task-body">
+								<h2 style="opacity: 0.5;" class="task-title"><strike><%= task.title%></strike></h2>
+								<div class="description">
+									<p style="opacity: 0.5;" class="task-sub-title task-desc"><%= task.description %></p>
+								</div>
+								<button style="opacity: 0.5;" class="toggle-show">Show details</button>
+							</div>
 							<p style="opacity: 0.5;" class="time-created-at task-sub-title">Completed <%= time_ago_in_words(task.completed) %> ago</p>
 						</div>
 						<div class="col-md-2">
-							<p><%= link_to task, method: :delete, data: { confirm: "Are you sure?" } do %></p>
-								Delete
-							<% end %>
+							<p><%= link_to task, method: :delete, data: { confirm: "Are you sure?" } do %><i class="fa fa-trash-o fa-3x"></i></p>
 						</div>	
 					</div>
+				<% end %>
 				<% else %>	
 					<div class="row task">
 						<div class="col-md-2">
-                                                        <p><%= link_to complete_task_path(task), method: :patch do %></p>
-                                                                Mark complete
+                                                        <p><%= link_to complete_task_path(task), method: :patch do %><i class="fa fa-square-o fa-3x"></i></p>
                                                         <% end %>
                                                 </div>
 						<div class="col-md-8">
-							<h2 class="task-title"><%= task.title %></h2>
-							<p class="task-sub-title task-desc"><%= task.description %></p>
+							<div class="task-body">
+								<h2 class="task-title"><%= task.title %></h2>
+								<div class="description">
+									<p class="task-sub-title task-desc"><%= task.description %></p>
+								</div>
+								<button class="toggle-show">Show details</button>
+							</div>
 							<p style="opacity: 0.5;" class="time-created-at task-sub-title">Created <%= time_ago_in_words(task.created_at) %> ago</p>
 						</div>
 						<div class="col-md-2">
-							<p><%= link_to task, method: :delete, data: { confirm: "Are you sure?" } do %></p>
-								Delete
+							<p><%= link_to task, method: :delete, data: { confirm: "Are you sure?" } do %><i class="fa fa-trash-o fa-3x"></i></p>
 							<% end %>
 						</div>
 					</div>
