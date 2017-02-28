@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
 	<div class="col-sm-8 col-sm-offset-2">
-		<% @tasks.each do |task| %>
+		<% @tasks.each_with_index do |task, i| %>
 			<div class="index-wrapper">
 				<% if task.completed? %>
 					<div class="row task">
@@ -32,7 +32,7 @@
 								<div class="description">
 									<p class="task-sub-title task-desc"><%= task.description %></p>
 									<% if task.latitude? %>
-									<div class="googleMap"></div>
+									<div class=<%= 'googleMap'+i %>></div>
 										<p><%= task.latitude %></p>
 										<p><%= task.longitude %></p>
 									<% end %>
