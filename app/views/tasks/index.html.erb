@@ -32,7 +32,7 @@
 								<div class="description">
 									<p class="task-sub-title task-desc"><%= task.description %></p>
 									<% if task.latitude? %>
-									<div class=<%= 'googleMap'+i %>></div>
+									<div id="<%= 'google-map' + i.to_s %>"></div>
 										<p><%= task.latitude %></p>
 										<p><%= task.longitude %></p>
 									<% end %>
