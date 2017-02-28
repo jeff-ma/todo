@@ -34,6 +34,10 @@
 								<h2 class="task-title"><%= task.title %></h2>
 								<div class="description">
 									<p class="task-sub-title task-desc"><%= task.description %></p>
+									<% if task.latitude? %>
+										<p><%= task.latitude %></p>
+										<p><%= task.longitude %></p>
+									<% end %>
 								</div>
 								<button class="toggle-show">Show details</button>
 							</div>
